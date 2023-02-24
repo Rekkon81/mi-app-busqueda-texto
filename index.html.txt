@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mi app de búsqueda de texto</title>
+    <meta charset="UTF-8">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      h1 {
+        text-align: center;
+      }
+      label {
+        font-weight: bold;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+      button[type="submit"]:hover {
+        background-color: #555;
+      }
+      #resultado {
+        font-size: 24px;
+        font-weight: bold;
+        color: #f00;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mi app de búsqueda de texto</h1>
+    <form>
+      <label for="numero">Ingresa un número:</label>
+      <br>
+      <input type="number" id="numero" name="numero" required>
+      <br>
+      <button type="submit" id="buscar">Buscar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+      const form = document.querySelector('form');
+      const resultado = document.querySelector('#resultado');
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const num = parseInt(document.querySelector('#numero').value);
+        let txt = '';
+
+        switch (num) {
+          case 1:
+            txt = 'Este es el texto para el número 1';
+            break;
+          case 2:
+            txt = 'Este es el texto para el número 2';
+            break;
+          // agregar más casos según sea necesario
+          default:
+            txt = 'No se encontró texto para ese número';
+            break;
+        }
+
+        resultado.textContent = txt;
+      });
+    </script>
+  </body>
+</html>
